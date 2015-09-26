@@ -21,7 +21,7 @@ function getWeather(callback) {
           if (err) throw err;
           console.log('Saved');
         });
-        console.log(callback.constructor);
+        console.log('Information retrieved and saved in data.json');
       } else {
         console.log('There was an error retrieving the information');
       }
