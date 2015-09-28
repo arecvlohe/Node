@@ -17,16 +17,18 @@ var getWeather = function getWeather(callback) {
 
     response.on('end', function () {
       if (response.statusCode === 200) {
-        console.log('Retrieving weather information');
+        console.log('Retrieving weather information.');
         callback = body;
         fs.writeFile('data.json', callback, function (err) {
           if (err) throw err;
           console.log('Saved');
         });
-        console.log('Information retrieved and saved to data.json');
+        console.log('Information retrieved and saved in data.json');
       } else {
         console.log('There was an error retrieving the information');
       }
     });
   });
 };
+
+module.exports.getWeather = getWeather();

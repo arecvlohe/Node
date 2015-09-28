@@ -1,9 +1,9 @@
 var http = require('http');
 
-function start(getWeather, readFile) {
+function start(getWeather) {
   function onRequest(request, response) {
 
-    var data        = readFile;
+    var data        = require('./data');
     var temp        = data.main.temp.toFixed(1);
     var tempDisplay = '{\r' + '\040\040\040' + 'currentTemperature: ' + temp +'\n}';
 
