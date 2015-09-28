@@ -1,13 +1,13 @@
-var http = require('http')
-var fs   = require('fs')
+let http = require('http')
+let fs   = require('fs')
 
 let getWeather = (callback) => {
 
-  var tampaWeather =  'http://api.openweathermap.org/data/2.5/weather?q=Tampa,FL&units=imperial'
+  let tampaWeather =  'http://api.openweathermap.org/data/2.5/weather?q=Tampa,FL&units=imperial'
 
   return http.get(tampaWeather, (response) => {
 
-    var body = ''
+    let body = ''
 
     response.on('data', function(chunk) {
       body+=chunk
@@ -16,7 +16,7 @@ let getWeather = (callback) => {
     response.on('end', function() {
       if(response.statusCode === 200) {
         console.log('Retrieving weather information.')
-        callback = body;
+        callback = body
         fs.writeFile('data.json', callback, function(err) {
           if (err) throw err
           console.log('Saved')
@@ -29,4 +29,4 @@ let getWeather = (callback) => {
   })
 }
 
-module.exports.getWeather = getWeather();
+module.exports.getWeather = getWeather()

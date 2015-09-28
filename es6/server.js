@@ -1,11 +1,11 @@
-var http = require('http')
+let http = require('http')
 
 let start = (getWeather) => {
   let onRequest = (request, response) => {
 
-    var data        = require('./data')
-    var temp        = data.main.temp.toFixed(1)
-    var tempDisplay = '{\r\tcurrentTemperature: ' + temp + '\n}'
+    let data        = require('./data')
+    let temp        = data.main.temp.toFixed(1)
+    let tempDisplay = '{\r\tcurrentTemperature: ' + temp + '\n}'
 
     response.writeHeader(200, {'Content-Type':'application/json'})
     response.end(tempDisplay, 'utf-8')
