@@ -9,7 +9,7 @@ var start      = require('../_server');
 describe('start()', function() {
   it('starts a server on localhost:5000', function() {
     superagent
-      .get('htt://localhost:5000')
+      .get('http://localhost:5000')
       .end(function(res) {
         expect(res.status).to.equal(200);
         done()
